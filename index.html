@@ -4599,15 +4599,16 @@ document.getElementById('cardClose').addEventListener('click', () => { railEl.cl
 
 // tanken bak hver kategori; vises i "Hvorfor?"-oya under produktkortet
 // hvorfor rommet trenger komponenten — behovet, ikke spesifikasjonen
+// hvorfor akkurat dette produktvalget — ikke hvorfor kategorien finnes
 const WHY = {
-  screen: 'Videomøtet, dokumentet og skissen må kunne stå oppe samtidig. Med én skjerm må noen alltid lukke sitt for å gi plass til andres.',
-  clickshare: 'Møter starter for sent fordi noen roter med kabler og adaptere. Her trykker du på knappen og er på skjermen med én gang.',
-  ipad: 'En idé forklares raskere med en strek enn med ord. Du tegner sittende ved bordet og alle ser skissen bli til — i stedet for å kløne med whiteboard som ingen får med seg etterpå.',
-  nuc: 'Referatet skal skrives uansett hvem som er i rommet. Da kan det ikke være avhengig av at noen har med riktig laptop.',
-  mic: 'Ingen skal sitte og notere i stedet for å delta. Mikrofonen tar hele bordet, så samtalen blir fanget av seg selv.',
-  button: 'Alle i rommet skal kunne starte referatet — ikke bare den som vet hvilken app det ligger i.',
-  mount: 'Skjermene skal henge der alle ser dem godt, ikke der det tilfeldigvis var enklest å bore.',
-  cable: 'Den som heller vil plugge i enn å dele trådløst, skal komme på skjermen like fort.',
+  screen: 'Vanlig TV, ikke proffskjerm: en møteromsskjerm koster tre ganger så mye uten å gi noe rommet trenger. Størrelsen er derimot ikke fritt valg — den følger avstanden til bakerste plass.',
+  clickshare: 'Billige delingsdongler krever at hver enkelt laptop har riktig app og driver. Barco er dyrere, men er den eneste som bare virker, uansett hvem som kommer inn døra.',
+  ipad: 'Android-nettbrettet er halve prisen, men har ingen videoutgang og kan derfor ikke ha skisseskjermen for seg selv. Pennen er også merkbart bedre på iPad.',
+  nuc: 'En liten PC bak skjermen koster mindre enn ett år med skytjeneste, og opptaket forlater aldri huset.',
+  mic: 'Mikrofonen i TV-en og laptopen er laget for én person rett foran. Denne er laget for et bord med ti.',
+  button: 'En programmerbar knapp koster noen hundrelapper og fjerner hele "hvor var det den appen lå"-problemet.',
+  mount: 'Det dyre festet kjøpes bare når plasseringen krever at skjermen svinges. Ellers gjør det billige vippefestet samme jobb.',
+  cable: 'Passiv kabel er billigst, men mister 4K på strekk over tre meter. Den aktive koster hundre kroner mer og holder bildet hele veien.',
 };
 
 const CATEGORY_LABELS = {
