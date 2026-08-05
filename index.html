@@ -204,7 +204,7 @@
     font-weight: 600; color: var(--ink); background: var(--paper); text-decoration: none;
     padding: 6px 11px; border-radius: 7px; cursor: pointer; transition: background .12s, opacity .12s; }
   .prod .select-product:hover { background: var(--track); }
-  .prod .select-product.selected { color: var(--ink3); cursor: default; }
+  .prod .p-count em { font-style: normal; font-weight: 650; color: var(--ok); }
   .prod a.buy { color: #fff; background: var(--blue); border-color: var(--blue); }
   .prod a.buy:hover { opacity: .9; }
   @media (max-width: 760px) {
@@ -4614,15 +4614,16 @@ function renderCarousel() {
       return '<article class="prod" aria-hidden="' + (i !== carouselIndex) + '">' +
         '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy">' +
         '<div class="p-meta"><span class="p-tier">' + CATEGORY_LABELS[s.key] + ' · ' + (p.tier || (s.tier === 0 ? 'Pris' : 'Best')) +
-        '</span><span class="p-count">' + (i + 1) + ' / ' + carouselSlides.length + '</span></div>' +
+        '</span><span class="p-count">' + (isSelected ? '<em>Valgt</em> · ' : '') +
+        (i + 1) + ' / ' + carouselSlides.length + '</span></div>' +
         '<div class="p-name">' + p.name + '</div>' +
         '<div class="p-model">' + p.model + '</div>' +
         (p.note ? '<div class="p-note">' + p.note + '</div>' : '') +
         '<div class="p-trade"><span>+ ' + p.pro + '</span><span>− ' + p.con + '</span></div>' +
         '<div class="p-row"><span class="p-price">' + fmt(p.price) + ' kr<small>eks. mva</small></span>' +
-        '<div class="p-actions"><button class="select-product' + (isSelected ? ' selected' : '') +
-        '" data-key="' + s.key + '" data-tier="' + s.tier + '"' + (isSelected ? ' disabled' : '') + '>' +
-        (isSelected ? 'Valgt' : 'Velg') + '</button>' +
+        '<div class="p-actions">' +
+        (isSelected ? '' : '<button class="select-product" data-key="' + s.key +
+          '" data-tier="' + s.tier + '">Velg</button>') +
         (p.url ? '<a class="buy" href="' + p.url + '" target="_blank" rel="noopener">Se produkt</a>' : '') +
         '</div></div></article>';
     }).join('') + '</div></div>';
