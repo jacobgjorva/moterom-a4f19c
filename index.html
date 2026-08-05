@@ -4403,7 +4403,7 @@ const MODULES = [
     feat: 'Flere deler samtidig, auto-splitt',
     desc: 'Basestasjonen ved skjermen tar imot alle kilder. Ett trykk på Button-en er nok, og når to deler samtidig splittes skjermen automatisk.',
     build: () => { const tx = tableX(); return [
-      pick(screenPanel(SLOTS.share), ['screen', 'clickshare']),
+      pick(screenPanel(SLOTS.share), ['screen']),
       // basestasjon 135x135x34 mm, veggmontert under skjermraden
       pick(addBox(0.034, 0.135, 0.135, W / 2 - 0.02, BOTTOM - 0.22, 0,
         { strokes: 2, jitter: 0.005, opacity: 0.8 }), ['clickshare']),
@@ -4415,7 +4415,7 @@ const MODULES = [
     feat: 'Live-skisse speiles på storskjerm',
     desc: 'Nettbrettet kables til skisseskjermen med USB-C, så den står fritt fra ClickShare-skjermen. Trådløs speiling ville lagt skissen oppå delingsbildet, siden basestasjonen bare driver én skjerm.',
     build: () => { const tx = tableX(); return [
-      pick(screenPanel(SLOTS.sketch), ['screen', 'ipad']),
+      pick(screenPanel(SLOTS.sketch), ['screen']),
       pick(addBox(0.4, 0.03, 0.28, tx + 1.35, 0.79, 0.34, { strokes: 1, jitter: 0.006, opacity: 0.55 }), ['ipad']),   // iPad, ved bordkant naermest skjermene
       pick(addBox(0.24, 0.015, 0.02, tx + 1.35, 0.8, 0.11, { strokes: 1, jitter: 0.005, opacity: 0.45 }), ['ipad']) ]; }, // penn, pa andre siden av padden
   },
@@ -4616,7 +4616,7 @@ function renderCarousel() {
         (p.url ? '<a class="buy" href="' + p.url + '" target="_blank" rel="noopener">Se produkt</a>' : '') +
         '</div></div></article>';
     }).join('') + '</div></div>';
-  cardTitle.textContent = carouselSlides.length > 2 ? 'Produktalternativer' : CATEGORY_LABELS[slide.key];
+  cardTitle.textContent = CATEGORY_LABELS[slide.key];
   whyBody.textContent = WHY[slide.key] || '';
   cardPrev.disabled = carouselIndex === 0;
   cardNext.disabled = carouselIndex === carouselSlides.length - 1;
