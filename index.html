@@ -4600,15 +4600,16 @@ document.getElementById('cardClose').addEventListener('click', () => { railEl.cl
 // tanken bak hver kategori; vises i "Hvorfor?"-oya under produktkortet
 // hvorfor rommet trenger komponenten — behovet, ikke spesifikasjonen
 // hvorfor akkurat dette produktvalget — ikke hvorfor kategorien finnes
+// hvorfor akkurat dette produktvalget, forklart enkelt
 const WHY = {
-  screen: 'Vanlig TV, ikke proffskjerm: en møteromsskjerm koster tre ganger så mye uten å gi noe rommet trenger. Størrelsen er derimot ikke fritt valg — den følger avstanden til bakerste plass.',
-  clickshare: 'Billige delingsdongler krever at hver enkelt laptop har riktig app og driver. Barco er dyrere, men er den eneste som bare virker, uansett hvem som kommer inn døra.',
-  ipad: 'Android-nettbrettet er halve prisen, men har ingen videoutgang og kan derfor ikke ha skisseskjermen for seg selv. Pennen er også merkbart bedre på iPad.',
-  nuc: 'En liten PC bak skjermen koster mindre enn ett år med skytjeneste, og opptaket forlater aldri huset.',
-  mic: 'Mikrofonen i TV-en og laptopen er laget for én person rett foran. Denne er laget for et bord med ti.',
-  button: 'En programmerbar knapp koster noen hundrelapper og fjerner hele "hvor var det den appen lå"-problemet.',
-  mount: 'Det dyre festet kjøpes bare når plasseringen krever at skjermen svinges. Ellers gjør det billige vippefestet samme jobb.',
-  cable: 'Passiv kabel er billigst, men mister 4K på strekk over tre meter. Den aktive koster hundre kroner mer og holder bildet hele veien.',
+  screen: 'Dette er en helt vanlig TV. Skjermer som er laget for møterom koster mye mer og gjør ikke noe ekstra her. Hvor stor den må være, bestemmes av hvor langt bak folk sitter.',
+  clickshare: 'Boksen ved skjermen tar imot bildet fra laptopen. Billigere utstyr krever at hver enkelt installerer noe først. Denne gjør ikke det.',
+  ipad: 'iPad koster nesten dobbelt så mye som Android-nettbrettet. Grunnen til at den er valgt er at den kan kobles til skjermen med kabel. Det kan ikke Android-nettbrettet.',
+  nuc: 'En liten PC står ved skjermen og gjør opptaket. Alternativet er en skytjeneste, som koster mer over tid og sender lyden ut av huset.',
+  mic: 'Mikrofonen i TV-en og i laptopen tar bare den som sitter nærmest. Denne er laget for å ta opp et helt bord.',
+  button: 'En knapp på bordet starter og stopper opptaket. Da slipper man å finne fram en app først.',
+  mount: 'Det dyre festet trengs bare når skjermen skal vinkles ut fra veggen. Står den rett på veggen, holder det billige.',
+  cable: 'Den billige kabelen mister bildekvalitet når den er lengre enn tre meter. Den dyre gjør ikke det.',
 };
 
 const CATEGORY_LABELS = {
