@@ -4010,7 +4010,7 @@ function sketch(geometry, { strokes = 3, jitter = 0.012, opacity = 0.5, fill = f
 
 // rommal; kan overstyres via ?w=&d=&h= (meter), og skrubbes live i panelet
 const q = new URLSearchParams(location.search);
-let W = +q.get('w') || 6.4, D = +q.get('d') || 3.4, H = +q.get('h') || 2.6;
+let W = +q.get('w') || 6.4, D = +q.get('d') || 4.0, H = +q.get('h') || 2.6;
 
 // alt rom-avhengig bygges i roomRoot sa det kan rives og bygges pa nytt
 const roomRoot = new THREE.Group();
