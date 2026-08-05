@@ -4598,15 +4598,16 @@ const cardNext = document.getElementById('cardNext');
 document.getElementById('cardClose').addEventListener('click', () => { railEl.classList.remove('open'); setSelected([]); });
 
 // tanken bak hver kategori; vises i "Hvorfor?"-oya under produktkortet
+// hvorfor rommet trenger komponenten — behovet, ikke spesifikasjonen
 const WHY = {
-  screen: 'Tre like skjermer gir én betjening og ett bildeuttrykk. Størrelsen bestemmes av avstanden til bakerste plass, ikke av budsjettet.',
-  clickshare: 'Basestasjonen er navet: alle kilder går gjennom den, og to vises samtidig med automatisk splitt. Button-en krever ingen driver eller innlogging.',
-  ipad: 'Skisseskjermen skal stå fritt fra delingsskjermen. Det krever kabel — og bare iPad har videoutgang over USB-C.',
-  nuc: 'AI-referenten trenger en maskin som alltid står på. Den henger på veggen ved basestasjonen, så ingen må starte noe.',
-  mic: 'Referatet blir aldri bedre enn opptaket. Flere kapsler fanger hele bordet, ikke bare den nærmeste.',
-  button: 'Fysisk knapp i stedet for app. Ett trykk starter opptaket, ett trykk avslutter og sender referatet.',
-  mount: 'Festet avgjør om skjermen kan vinkles og hvor tett den ligger veggen. VESA og vekt må stemme med størrelsen.',
-  cable: 'Strekket går skjult fra bord til vegg uten skjøt. Passive kabler holder bare til rundt 3 meter.',
+  screen: 'Videomøtet, dokumentet og skissen må kunne stå oppe samtidig. Med én skjerm må noen alltid lukke sitt for å gi plass til andres.',
+  clickshare: 'Møter starter for sent fordi noen roter med kabler og adaptere. Her trykker du på knappen og er på skjermen med én gang.',
+  ipad: 'En idé forklares raskere med en strek enn med ord. Du tegner sittende ved bordet og alle ser skissen bli til — i stedet for å kløne med whiteboard som ingen får med seg etterpå.',
+  nuc: 'Referatet skal skrives uansett hvem som er i rommet. Da kan det ikke være avhengig av at noen har med riktig laptop.',
+  mic: 'Ingen skal sitte og notere i stedet for å delta. Mikrofonen tar hele bordet, så samtalen blir fanget av seg selv.',
+  button: 'Alle i rommet skal kunne starte referatet — ikke bare den som vet hvilken app det ligger i.',
+  mount: 'Skjermene skal henge der alle ser dem godt, ikke der det tilfeldigvis var enklest å bore.',
+  cable: 'Den som heller vil plugge i enn å dele trådløst, skal komme på skjermen like fort.',
 };
 
 const CATEGORY_LABELS = {
