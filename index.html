@@ -163,12 +163,22 @@
   #card .card-title { flex: 1; min-width: 0; font-size: 13px; font-weight: 650; color: var(--ink);
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   #card button { font-family: inherit; }
-  #card .card-nav { display: flex; align-items: center; gap: 3px; }
-  #card .nav, #card .close { border: 1px solid var(--line); cursor: pointer; color: var(--ink2);
+  #card .close { border: 1px solid var(--line); cursor: pointer; color: var(--ink2);
     font-size: 13px; line-height: 1; text-align: center; width: 22px; height: 22px; padding: 0;
     border-radius: 6px; background: var(--paper); transition: background .12s, color .12s; }
-  #card .nav:hover, #card .close:hover { background: var(--track); color: var(--ink); }
-  #card .nav:disabled { opacity: .35; cursor: default; background: var(--paper); }
+  #card .close:hover { background: var(--track); color: var(--ink); }
+
+  /* karusellpiler ligger pa selve produktbildet, ikke gjemt i headeren */
+  .card-carousel { position: relative; }
+  #card .nav { position: absolute; top: 71px; transform: translateY(-50%); z-index: 2;
+    width: 30px; height: 30px; padding: 0 0 2px; border: 0; border-radius: 50%; cursor: pointer;
+    background: rgba(255,255,255,.94); color: var(--ink); font-size: 17px; line-height: 1;
+    box-shadow: 0 1px 3px rgba(16,24,40,.2), 0 0 0 .5px rgba(16,24,40,.1);
+    transition: background .12s, transform .12s; }
+  #card .nav.prev { left: 18px; }
+  #card .nav.next { right: 18px; }
+  #card .nav:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
+  #card .nav:disabled { display: none; }
   .carousel-window { overflow: hidden; }
   .carousel-track { display: flex; transition: transform .28s cubic-bezier(.25,.8,.25,1); }
   .prod { flex: 0 0 100%; min-width: 0; padding: 12px; }
@@ -248,13 +258,13 @@
 <div id="card">
   <div class="card-head">
     <span class="card-title" id="cardTitle">Produktalternativer</span>
-    <div class="card-nav">
-      <button class="nav" id="cardPrev" aria-label="Forrige alternativ">&lsaquo;</button>
-      <button class="nav" id="cardNext" aria-label="Neste alternativ">&rsaquo;</button>
-    </div>
     <button class="close" id="cardClose" aria-label="Lukk">&times;</button>
   </div>
-  <div id="cardBody"></div>
+  <div class="card-carousel">
+    <div id="cardBody"></div>
+    <button class="nav prev" id="cardPrev" aria-label="Forrige alternativ">&lsaquo;</button>
+    <button class="nav next" id="cardNext" aria-label="Neste alternativ">&rsaquo;</button>
+  </div>
 </div>
 <div id="why">
   <button id="whyHead"><span>Hvorfor?</span><i>+</i></button>
