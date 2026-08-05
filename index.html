@@ -4402,24 +4402,31 @@ const MODULES = [
     hw: [['clickshare', 1]],
     feat: 'Flere deler samtidig, auto-splitt',
     desc: 'Basestasjonen ved skjermen tar imot alle kilder. Ett trykk på Button-en er nok, og når to deler samtidig splittes skjermen automatisk.',
-    build: () => [ pick(screenPanel(SLOTS.share), ['screen', 'clickshare']) ] },
+    build: () => { const tx = tableX(); return [
+      pick(screenPanel(SLOTS.share), ['screen', 'clickshare']),
+      // basestasjon 135x135x34 mm, veggmontert under skjermraden
+      pick(addBox(0.034, 0.135, 0.135, W / 2 - 0.02, BOTTOM - 0.22, 0,
+        { strokes: 2, jitter: 0.005, opacity: 0.8 }), ['clickshare']),
+      // Button pa bordet, der den plugges i laptopen
+      pick(addBox(0.062, 0.016, 0.062, tx + 0.9, 0.788, -0.32,
+        { strokes: 2, jitter: 0.004, opacity: 0.8 }), ['clickshare']) ]; } },
   { id: 'skisse', name: 'Nettbrett + tegneskjerm', on: true,
     hw: [['ipad', 1]],
     feat: 'Live-skisse speiles på storskjerm',
     desc: 'Nettbrettet kables til skisseskjermen med USB-C, så den står fritt fra ClickShare-skjermen. Trådløs speiling ville lagt skissen oppå delingsbildet, siden basestasjonen bare driver én skjerm.',
-    build: () => [
+    build: () => { const tx = tableX(); return [
       pick(screenPanel(SLOTS.sketch), ['screen', 'ipad']),
-      pick(addBox(0.4, 0.03, 0.28, 1.4, 0.79, 0.36, { strokes: 1, jitter: 0.006, opacity: 0.55 }), ['ipad']),   // iPad, ved bordkant naermest skjermene
-      pick(addBox(0.24, 0.015, 0.02, 1.4, 0.8, 0.13, { strokes: 1, jitter: 0.005, opacity: 0.45 }), ['ipad']) ], // penn, pa andre siden av padden
+      pick(addBox(0.4, 0.03, 0.28, tx + 1.35, 0.79, 0.34, { strokes: 1, jitter: 0.006, opacity: 0.55 }), ['ipad']),   // iPad, ved bordkant naermest skjermene
+      pick(addBox(0.24, 0.015, 0.02, tx + 1.35, 0.8, 0.11, { strokes: 1, jitter: 0.005, opacity: 0.45 }), ['ipad']) ]; }, // penn, pa andre siden av padden
   },
   { id: 'ai', name: 'AI-referent', on: false, signature: true,
     hw: [['nuc', 1], ['mic', 1], ['button', 1]],
     feat: 'Ett trykk: ferdig referat til deltakerne',
     desc: 'Mini-PC + bordmikrofon + fysisk knapp. Ett trykk starter en egen agent som transkriberer, lager referat med beslutninger og oppgaver, og sender det til deltakerlista fra møtebookingen.',
-    build: () => [
-      pick(addBox(0.34, 0.1, 0.34, 0, 0.83, 0, { strokes: 2, jitter: 0.006, opacity: 0.85 }), ['mic']),      // mic-puck
-      pick(addBox(0.14, 0.08, 0.14, 0.5, 0.82, 0.3, { strokes: 2, jitter: 0.006, opacity: 0.85 }), ['button']),  // knapp
-      pick(addBox(0.34, 0.16, 0.34, 1.55, 0.82, -0.32, { strokes: 2, jitter: 0.006, opacity: 0.75 }), ['nuc']) ] }, // NUC
+    build: () => { const tx = tableX(); return [
+      pick(addBox(0.18, 0.045, 0.18, tx, 0.805, 0, { strokes: 2, jitter: 0.006, opacity: 0.85 }), ['mic']),          // mikrofon midt pa bordet
+      pick(addBox(0.09, 0.03, 0.06, tx - 0.75, 0.795, 0.32, { strokes: 2, jitter: 0.006, opacity: 0.85 }), ['button']),// startknapp
+      pick(addBox(0.15, 0.045, 0.15, W / 2 - 0.09, BOTTOM - 0.22, -0.3, { strokes: 2, jitter: 0.006, opacity: 0.75 }), ['nuc']) ]; } }, // mini-PC pa veggen ved basestasjonen
 ];
 
 MODULES.forEach(m => {
