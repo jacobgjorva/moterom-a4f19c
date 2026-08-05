@@ -149,14 +149,14 @@
     border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; cursor: pointer; }
   #why:hover { border-color: #dcdce0; }
   #whyHead { display: flex; align-items: center; gap: 8px; width: 100%; padding: 12px 14px;
-    border: 0; background: none; cursor: pointer; font: inherit; font-size: 13px;
+    border: 0; background: none; cursor: pointer; font: inherit; font-size: 14px;
     font-weight: 650; color: var(--ink); text-align: left; }
   #whyHead span { flex: 1; }
   #whyHead i { font-style: normal; font-size: 13px; line-height: 1; color: var(--ink3);
     transition: transform .18s cubic-bezier(.25,.8,.25,1); }
   #why.open #whyHead i { transform: rotate(45deg); }
-  #whyBody { display: none; padding: 0 14px 15px; font-size: 12.5px; line-height: 1.65;
-    color: var(--ink2); letter-spacing: -.05px; }
+  #whyBody { display: none; padding: 0 15px 16px; font-size: 14px; line-height: 1.6;
+    color: var(--ink2); letter-spacing: -.1px; }
   #why.open #whyBody { display: block; }
   #card .card-head { display: flex; align-items: center; gap: 8px; padding: 11px 12px 10px;
     border-bottom: 1px solid var(--line); }
@@ -4599,14 +4599,14 @@ document.getElementById('cardClose').addEventListener('click', () => { railEl.cl
 
 // tanken bak hver kategori; vises i "Hvorfor?"-oya under produktkortet
 const WHY = {
-  screen: 'Tre like skjermer, ikke tre ulike: samme fjernkontroll og samme bildeinnstilling på alle. Størrelsen er bestemt av avstanden til bakerste plass, ikke av budsjettet. Bildehøyden må være minst en sjettedel av avstanden for at detaljert innhold skal kunne leses.',
-  clickshare: 'Basestasjonen står ved skjermen og er selve navet: alle kilder går gjennom den, og to kan vises samtidig med automatisk splitt. Den som plugger inn Button-en trenger ingen driver eller innlogging; de neste kobler seg på med ClickShare-appen eller rett fra AirPlay, Google Cast og Miracast. Alternativet er innebygd casting i TV-en: gratis, men viser én kilde om gangen og speiler ikke nettbrett.',
-  ipad: 'Nettbrettet dekker skissing under møtet, og skal ha sin egen skjerm. Det krever kabel, siden ClickShare-basestasjonen bare driver én skjerm og trådløs speiling derfor havner på delingsbildet. Bare iPad har DisplayPort over USB-C; Galaxy Tab S10 FE har USB 2.0 uten videoutgang og kan kun speile trådløst.',
-  nuc: 'AI-referenten kjører på en fast maskin som står påslått, plassert bak skjermen. Ytelsesnivået avgjør om transkriberingen kan skje lokalt eller må gå til sky.',
-  mic: 'Bordmikrofonen er kun til referatopptak, ikke til videomøter. Antall kapsler og rekkevidde avgjør hvor stor del av bordet som fanges opp.',
-  button: 'Fysisk knapp i stedet for app: starter og stopper opptaket uten innlogging. LCD-tastene viser status, så det er synlig om opptaket går.',
-  mount: 'Festet bestemmer avstand fra vegg og om skjermen kan vinkles ned mot bordet. VESA-mønster og vektgrense må kontrolleres mot valgt skjermstørrelse før bestilling.',
-  cable: 'HDMI-strekk på 5 meter fra bord til vegg, uten skjøt. Lengden følger romdybden. HDCP 2.2 kreves for enkelte kilder.',
+  screen: 'Tre like skjermer gir én betjening og ett bildeuttrykk. Størrelsen bestemmes av avstanden til bakerste plass, ikke av budsjettet.',
+  clickshare: 'Basestasjonen er navet: alle kilder går gjennom den, og to vises samtidig med automatisk splitt. Button-en krever ingen driver eller innlogging.',
+  ipad: 'Skisseskjermen skal stå fritt fra delingsskjermen. Det krever kabel — og bare iPad har videoutgang over USB-C.',
+  nuc: 'AI-referenten trenger en maskin som alltid står på. Den henger på veggen ved basestasjonen, så ingen må starte noe.',
+  mic: 'Referatet blir aldri bedre enn opptaket. Flere kapsler fanger hele bordet, ikke bare den nærmeste.',
+  button: 'Fysisk knapp i stedet for app. Ett trykk starter opptaket, ett trykk avslutter og sender referatet.',
+  mount: 'Festet avgjør om skjermen kan vinkles og hvor tett den ligger veggen. VESA og vekt må stemme med størrelsen.',
+  cable: 'Strekket går skjult fra bord til vegg uten skjøt. Passive kabler holder bare til rundt 3 meter.',
 };
 
 const CATEGORY_LABELS = {
